@@ -54,10 +54,12 @@ $("#leave").click(function (e) {
 })
 
 async function join() {
-
+  
   // add event listener to play remote tracks when remote user publishs.
   client.on("user-published", handleUserPublished);
   client.on("user-unpublished", handleUserUnpublished);
+  
+  $("#local-player-name").text(`before join()`);
 
   // join a channel and create local tracks, we can use Promise.all to run them concurrently
   [ options.uid, localTracks.audioTrack, localTracks.videoTrack ] = await Promise.all([
@@ -67,6 +69,8 @@ async function join() {
     AgoraRTC.createMicrophoneAudioTrack(),
     AgoraRTC.createCameraVideoTrack()
   ]);
+  
+  $("#local-player-name").text(`after join()`);
   
   // play local video track
   localTracks.videoTrack.play("local-player");
