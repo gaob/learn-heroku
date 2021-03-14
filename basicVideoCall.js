@@ -32,8 +32,8 @@ $("#join-form").submit(async function (e) {
   e.preventDefault();
   $("#join").attr("disabled", true);
   try {
-    options.appid = $("#appid").val();
-    options.token = $("#token").val();
+    options.appid = "5c44a7102ee34cebaf91378fa9559d2a";
+    options.token = "0065c44a7102ee34cebaf91378fa9559d2aIAC99K74nz6MnY8yqQ2UpW/W+nCfG9QUlwXtsAlcqDtpMZsSO9kAAAAAEAAEa9nrMJ1PYAEAAQAwnU9g";
     options.channel = $("#channel").val();
     await join();
     if(options.token) {
